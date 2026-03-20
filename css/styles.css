@@ -1149,26 +1149,28 @@ section {
 }
 
 /* =========================================
-   TREATMENT PROCESS (STEPPER)
+   TREATMENT PROCESS (STEPPER ZIGZAG)
    ========================================= */
 .stepper {
     display: flex;
     justify-content: space-between;
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 1100px;
+    margin: 60px auto 40px auto;
 }
 
 .stepper::before {
     content: '';
     position: absolute;
-    top: 40px;
-    left: 5%;
-    width: 90%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2%;
+    width: 96%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 50%, var(--accent) 100%);
     z-index: 0;
-    opacity: 0.3;
+    opacity: 0.4;
+    border-radius: 4px;
 }
 
 .step {
@@ -1176,38 +1178,59 @@ section {
     text-align: center;
     position: relative;
     z-index: 1;
-    padding: 0 10px;
+    padding: 24px 16px 20px 16px;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(13, 115, 119, 0.04);
+    margin: 0 10px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(13, 115, 119, 0.08);
+}
+
+/* Zigzag Layout for Desktop */
+.step:nth-child(odd) {
+    transform: translateY(-25px);
+}
+.step:nth-child(even) {
+    transform: translateY(25px);
+}
+
+.step:hover {
+    transform: translateY(-5px) scale(1.03) !important;
+    box-shadow: 0 20px 40px rgba(13, 115, 119, 0.12);
+    z-index: 2;
 }
 
 .step-icon {
-    width: 80px;
-    height: 80px;
-    background-color: var(--bg-white);
-    border: 3px solid var(--primary);
-    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(168, 230, 207, 0.4) 0%, rgba(13, 115, 119, 0.1) 100%);
+    border: none;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 20px auto;
+    font-size: 2.2rem;
+    margin: -50px auto 20px auto;
     box-shadow: 0 10px 20px rgba(13, 115, 119, 0.1);
     transition: var(--transition);
 }
 
 .step:hover .step-icon {
-    transform: scale(1.1) translateY(-5px);
-    background-color: var(--primary);
-    border-color: var(--primary-dark);
+    transform: rotate(10deg) scale(1.1);
+    background: linear-gradient(135deg, rgba(168, 230, 207, 0.6) 0%, rgba(13, 115, 119, 0.2) 100%);
 }
 
 .step-title {
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     color: var(--primary-dark);
     margin-bottom: 8px;
+    font-weight: 700;
 }
 
 .step-desc {
     font-size: 0.9rem;
+    line-height: 1.5;
     color: var(--text-muted);
 }
 
@@ -1345,27 +1368,45 @@ section {
 @media (max-width: 768px) {
     .stepper {
         flex-direction: column;
-        gap: 40px;
-        align-items: flex-start;
+        gap: 20px;
+        margin: 40px auto 20px;
+        position: relative;
     }
     .stepper::before {
-        width: 3px;
-        height: 90%;
-        top: 5%;
-        left: 50px; /* align with center of icon */
-        background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+        width: 4px;
+        height: calc(100% - 30px);
+        top: 15px;
+        left: 44px;
+        transform: none;
+        background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 50%, var(--accent) 100%);
     }
-    .step {
+    .step, .step:nth-child(odd), .step:nth-child(even) {
+        transform: none;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: left;
         align-items: flex-start;
-        gap: 20px;
-        padding: 0 10px;
+        gap: 4px;
+        padding: 24px 24px 24px 85px;
         width: 100%;
+        margin: 0;
     }
     .step-icon {
         margin: 0;
-        flex-shrink: 0;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    .step:hover {
+        transform: scale(1.02) !important;
+    }
+    .step:hover .step-icon {
+        transform: translateY(-50%) rotate(10deg) scale(1.1);
     }
     .testimonial-card {
         min-width: 300px;
