@@ -109,13 +109,13 @@
             <div class="hero-bg">
                 <div class="mesh-gradient"></div>
                 <div class="floating-element float-1">🦷</div>
-                <div class="floating-element float-2">✨</div>
-                <div class="floating-element float-3">🪥</div>
+                <div class="floating-element float-2">🪥</div>
+                <div class="floating-element float-3">✨</div>
             </div>
             
-            <div class="container hero-container">
-                <div class="hero-content reveal-on-scroll">
-                    <h1 class="hero-title">Your <span class="text-accent word-rotate"><span id="word-rotate">Smile</span></span>,<br>Our Passion 😁</h1>
+            <div class="container hero-container hero-split">
+                <div class="hero-content reveal-on-scroll text-left">
+                    <h1 class="hero-title">Your <span class="text-accent word-rotate"><span id="word-rotate">Smile</span></span><br>Our Passion 😁</h1>
                     <p class="hero-subtitle">Advanced Dental Care in the Heart of Panvel — Where Technology Meets Compassion</p>
                     
                     <div class="hero-ctas">
@@ -129,6 +129,11 @@
                         <span class="badge">✅ Painless Procedures</span>
                         <span class="badge">✅ Advanced Equipment</span>
                     </div>
+                </div>
+                
+                <div class="hero-image-wrapper reveal-on-scroll delay-1">
+                    <!-- Replace src with an image of a happy patient or clinic -->
+                    <img src="images/happy-patient.png" alt="Happy Patient at Clinic" class="hero-img">
                 </div>
             </div>
         </section>
@@ -175,9 +180,8 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image reveal-on-scroll">
-                        <div class="doctor-placeholder">
-                            <span class="placeholder-icon">👨‍⚕️</span>
-                        </div>
+                        <!-- Replace this placeholder with the Doctor's original photo -->
+                        <img src="images/doctor.png" alt="Dr. Mhatre" class="about-doctor-img">
                         <div class="experience-badge">
                             <span class="exp-number">10+</span>
                             <span class="exp-text">Years of<br>Experience</span>
@@ -315,12 +319,36 @@
                 
                 <!-- Empty Color Boxes for Future Gallery Images -->
                 <div class="gallery-container">
-                    <div class="gallery-grid reveal-on-scroll">
-                        <div class="gallery-box">🦷<br><small>Case 1</small></div>
-                        <div class="gallery-box">😁<br><small>Case 2</small></div>
-                        <div class="gallery-box">✨<br><small>Case 3</small></div>
-                        <div class="gallery-box">🪥<br><small>Case 4</small></div>
+                    <div class="gallery-grid reveal-on-scroll bento-gallery">
+                        <div class="gallery-item">
+                            <img src="images/img1.png" alt="Smile Transformation 1" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span>😁 Full Rehabilitation</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/img2.png" alt="Smile Transformation 2" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span>✨ Before & After</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/img3.png" alt="Smile Transformation 3" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span>🦷 Perfect Implants</span>
+                            </div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="images/img4.png" alt="Smile Transformation 4" class="gallery-image" loading="lazy">
+                            <div class="gallery-overlay">
+                                <span>🪥 Bright Whitening</span>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                
+                <div class="mobile-swipe-hint text-center mb-3">
+                    <small style="color: var(--text-muted); font-weight: 500;">👈 Swipe to view more 👉</small>
                 </div>
                 
                 <div class="text-center mt-4 reveal-on-scroll">
